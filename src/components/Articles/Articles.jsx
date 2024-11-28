@@ -1,21 +1,21 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import Button from "@/components/Button/Button";
 import styles from "@/components/Articles/Article.module.scss";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Articles = () => {
   const [filter, setFilter] = useState("none");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const filterSectionRef = useRef(null);
 
   const applyFilter = (newFilter) => {
     setFilter((prevFilter) => (prevFilter === newFilter ? "none" : newFilter));
     setCurrentPage(1);
+    scrollToFilter();
   };
 
   const filteredArticles = ARTICLES.filter(
@@ -30,7 +30,19 @@ const Articles = () => {
   );
 
   const goToPage = (page) => {
-    if (page > 0 && page <= totalPages) setCurrentPage(page);
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+      scrollToFilter();
+    }
+  };
+
+  const scrollToFilter = () => {
+    if (filterSectionRef.current) {
+      filterSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   const filters = [...new Set(ARTICLES.flatMap((article) => article.genre))];
@@ -47,7 +59,10 @@ const Articles = () => {
             éxito, creatividad y los temas más interesantes de la industria.
           </p>
         </div>
-        <div className="flex items-center justify-center py-12 lg:py-[3.75rem] pl-5">
+        <div
+          ref={filterSectionRef}
+          className="flex items-center justify-center py-12 lg:py-[3.75rem] pl-5"
+        >
           <span className="text-base font-bold mr-4">Filtrar:</span>
           <div
             className={`flex gap-4 overflow-x-auto text-nowrap ${styles.scrollbar}`}
@@ -85,27 +100,48 @@ const Articles = () => {
         </div>
         <div className="my-12 px-5 lg:px-20 w-full flex items-center justify-center">
           {totalPages > 1 && (
-            <div className="flex flex-row gap-4 items-center">
-              <Button
-                label="Anterior"
-                variant="paginationLeft"
-                onClick={() => goToPage(currentPage - 1)}
-              />
-              {Array.from({ length: totalPages }, (_, i) => (
+            <div className="flex flex-col md:flex-row gap-4 items-center">
+              <div className="flex gap-2">
                 <Button
-                  label={`${i + 1}`}
-                  variant={
-                    i === currentPage - 1 ? "paginationSelected" : "pagination"
-                  }
-                  key={i}
-                  onClick={() => goToPage(i + 1)}
+                  label="Anterior"
+                  variant="paginationLeft"
+                  onClick={() => goToPage(currentPage - 1)}
                 />
-              ))}
-              <Button
-                label="Siguiente"
-                variant="paginationRight"
-                onClick={() => goToPage(currentPage + 1)}
-              />
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <Button
+                    label={`${i + 1}`}
+                    variant={
+                      i === currentPage - 1
+                        ? "paginationSelected"
+                        : "pagination"
+                    }
+                    key={i}
+                    onClick={() => goToPage(i + 1)}
+                    className="hidden md:block"
+                  />
+                ))}
+                <Button
+                  label="Siguiente"
+                  variant="paginationRight"
+                  onClick={() => goToPage(currentPage + 1)}
+                />
+              </div>
+
+              <div className="flex gap-2">
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <Button
+                    label={`${i + 1}`}
+                    variant={
+                      i === currentPage - 1
+                        ? "paginationSelected"
+                        : "pagination"
+                    }
+                    key={i}
+                    onClick={() => goToPage(i + 1)}
+                    className="block md:hidden"
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>

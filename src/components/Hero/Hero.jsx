@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero from "@/assets/images/hero.png";
+import Button from "../Button/Button";
 
 const Hero = () => {
   return (
@@ -20,9 +21,7 @@ const Hero = () => {
               className="w-full max-w-80 h-fit px-6 py-4 bg-white text-placeholder border border-black rounded-[3.75rem] mb-4 md:mr-4"
               placeholder="Ingresá tu correo electrónico"
             />
-            <button className="w-fit h-fit px-6 py-4 text-white bg-purple rounded-[3.75rem]">
-              ¡Suscríbete ahora!
-            </button>
+            <Button label="¡Suscríbete ahora!"></Button>
           </div>
         </div>
         <div className="w-full max-w-[500px] flex justify-center items-center">

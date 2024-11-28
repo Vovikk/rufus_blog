@@ -4,6 +4,7 @@ import logoMobile from "@/assets/icons/logo_mobile.svg";
 import logo from "@/assets/icons/logo.svg";
 import search from "@/assets/icons/search.svg";
 import Menu from "@/components/Header/Menu";
+import Button from "@/components/Button/Button";
 import { NAV_LINKS } from "@/data/index";
 
 const Navbar = () => {
@@ -42,10 +43,7 @@ const Navbar = () => {
                 <Image src={search} alt="Search" />
               </div>
             </div>
-
-            <button className="bg-purple text-white px-8 py-4 rounded-[3.75rem]">
-              ¡Hablemos!
-            </button>
+            <Button label="¡Hablemos!" className="px-8 py-4"></Button>
           </div>
         </div>
       </div>
