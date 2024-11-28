@@ -16,7 +16,7 @@ const Articles = () => {
             variant="2x1"
             className="row-span-2 h-full"
             image={articleImg1}
-            genre="Creatividad"
+            genre={["Creatividad"]}
             author="Miranda Marini"
             date={{ month: "Octubre", day: "14", year: "2024" }}
             title="El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos"
@@ -26,7 +26,7 @@ const Articles = () => {
             variant="1x1"
             image={articleImg2}
             className="xl:flex xl:flex-row-reverse h-full"
-            genre="Growth"
+            genre={["Growth"]}
             author="Miranda Marini"
             date={{ month: "Octubre", day: "23", year: "2024" }}
             title="El match perfecto: Cómo encontrar al Creador ideal para tu marca"
@@ -36,7 +36,7 @@ const Articles = () => {
             variant="1x1"
             image={articleImg3}
             className="xl:flex xl:flex-row-reverse col-start-2 row-start-2 h-full"
-            genre="Caso de Éxito"
+            genre={["Caso de Éxito"]}
             author="Rufus"
             date={{ month: "Septiembre", day: "10", year: "2024" }}
             title="Caso de Éxito: Stori by Rufus"

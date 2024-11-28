@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/Button/Button";
 import footerTitleMobile from "@/assets/icons/footer_title-mobile.svg";
 import footerTitle from "@/assets/icons/footer_title.svg";
 import logoMobile from "@/assets/icons/logo_mobile-white.svg";
@@ -38,9 +39,7 @@ const Footer = () => {
           <p className="mb-4 text-white text-base leading-5 max-w-72 md:max-w-96 text-center">
             Take the first step towards unleashing your brand's potential
           </p>
-          <button className="text-base leading-5 font-bold  px-[2.5rem] py-4 bg-white rounded-[10rem]">
-            Contact us
-          </button>
+          <Button variant="white" label="Contact us"></Button>
         </div>
         <div className=" w-full py-16 bg-purple-dark rounded-t-[4rem] ">
           <div className="grid md:grid-cols-footer max-w-5xl m-auto">

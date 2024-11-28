@@ -5,7 +5,7 @@ import LinkIcon from "@/assets/icons/link_arrow.svg";
 const Card = ({
   variant = "base",
   image,
-  genre,
+  genre = [],
   author,
   date = { month: "January", day: "1", year: "2000" },
   title = "Article",
@@ -14,7 +14,7 @@ const Card = ({
   ...props
 }) => {
   const baseClasses =
-    "w-full h-fit rounded-[1.75rem] bg-white max-w-[600px] xl:max-w-full";
+    "w-full h-fit rounded-[1.75rem] bg-white max-w-[600px] xl:max-w-full m-auto";
 
   const variantContainerStyles = {
     base: "",
@@ -30,19 +30,19 @@ const Card = ({
 
   const variantTextStyles = {
     base: {
-      genre: "text-base text-purple",
+      genre: "text-base text-purple mr-3",
       date: "my-4 text-base",
       title: "mb-6 text-2xl font-bold",
       paragraph: "mb-8 text-base",
     },
     "2x1": {
-      genre: "text-base text-purple",
+      genre: "text-base text-purple mr-3",
       date: "my-4 text-base",
       title: "mb-6 text-4xl font-bold xl:text-4xl",
       paragraph: "mb-8 text-base",
     },
     "1x1": {
-      genre: "text-base text-purple",
+      genre: "text-base text-purple mr-3",
       date: "my-4 text-base xl:my-3",
       title: "mb-4 text-2xl font-bold xl:mb-4",
       paragraph: "mb-6 text-base xl:mb-6",
@@ -60,12 +60,16 @@ const Card = ({
       </div>
 
       <div className={`px-5 py-8 ${variantContainerStyles[variant]}`}>
-        <Link
-          href={`/search/${genre}`}
-          className={variantTextStyles[variant].genre}
-        >
-          {genre}
-        </Link>
+        {genre.map((genre, index) => (
+          <Link
+            href={`/search/${genre}`}
+            className={variantTextStyles[variant].genre}
+            key={index}
+          >
+            {genre}
+          </Link>
+        ))}
+
         <p className={variantTextStyles[variant].date}>
           {author} | {date.month} {date.day}, {date.year}
         </p>
