@@ -1,6 +1,6 @@
 import Image from "next/image";
 import hero from "@/assets/images/hero.png";
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
 
 const Hero = () => {
   return (

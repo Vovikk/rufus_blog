@@ -1,15 +1,15 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import styles from "@/components/Articles/Article.module.scss";
+import styles from "@/app/articles/Article.module.scss";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
 import { useState, useRef } from "react";
 
-const Articles = () => {
+const ArticlesPage = () => {
   const [filter, setFilter] = useState("none");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 12;
   const filterSectionRef = useRef(null);
 
   const applyFilter = (newFilter) => {
@@ -49,10 +49,10 @@ const Articles = () => {
 
   return (
     <section className="w-full flex justify-center">
-      <div className="max-w-[1440px] w-full">
-        <div className="flex flex-col items-center gap-6 px-5 lg:px-20 max-w-[650px] m-auto">
+      <div className="max-w-[1440px] w-full mt-16 lg:mt-[6.25rem]">
+        <div className="flex flex-col items-center gap-6 max-w-3xl m-auto">
           <h2 className="text-4xl lg:text-5xl font-bold text-center">
-            Últimas novedades
+            Conocé todos nuestros artículos
           </h2>
           <p className="text-center text-base lg:text-lg">
             Mantente actualizado y aprende sobre publicidad digital, casos de
@@ -80,10 +80,10 @@ const Articles = () => {
         <div
           className={`flex flex-col items-center md:grid ${
             paginatedArticles.length > 3
-              ? "md:grid-cols-2 md:grid-rows-2 "
+              ? "md:grid-cols-2 md:grid-rows-2"
               : "sm:grid-cols-1 sm:grid-rows-1"
           }
-           xl:grid-cols-3 px-5 xl:px-20 gap-x-8 gap-y-8 xl:gap-y-[3.75rem]`}
+  xl:grid-cols-3 px-5 xl:px-20 gap-x-8 gap-y-8 xl:gap-y-[3.75rem]`}
         >
           {paginatedArticles.map((article, index) => (
             <Card
@@ -160,4 +160,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default ArticlesPage;

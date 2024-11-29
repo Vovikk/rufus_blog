@@ -9,13 +9,13 @@ import articleImg8 from "@/assets/images/articles/8.png";
 import articleImg9 from "@/assets/images/articles/9.png";
 
 export const NAV_LINKS = [
-  { href: "/", key: "blog", label: "Blog" },
+  { href: "/", key: "", label: "Blog" },
   { href: "/", key: "articles", label: "Articles" },
 ];
 
-export const FEATURED = [
+export const ARTICLES = [
   {
-    className: "row-span-2 h-full",
+    className: "",
     image: articleImg1,
     genre: ["Creatividad"],
     author: "Miranda Marini",
@@ -23,10 +23,10 @@ export const FEATURED = [
     title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",
     paragraph:
       "Captar la atención en los primeros segundos es clave para el éxito de cualquier anuncio. Un buen hook...",
-    variant: "2x1",
+    featured: true,
   },
   {
-    className: "xl:flex xl:flex-row-reverse h-full",
+    className: "",
     image: articleImg2,
     genre: ["Growth"],
     author: "Miranda Marini",
@@ -34,10 +34,10 @@ export const FEATURED = [
     title: "El match perfecto: Cómo encontrar al Creador ideal para tu marca",
     paragraph:
       "Elegir al Creador adecuado puede ser la diferencia entre una campaña exitosa y un esfuerzo que pase desapercibido.",
-    variant: "1x1",
+    featured: true,
   },
   {
-    className: "xl:flex xl:flex-row-reverse col-start-2 row-start-2 h-full",
+    className: "",
     image: articleImg3,
     genre: ["Caso de Éxito"],
     author: "Rufus",
@@ -45,11 +45,8 @@ export const FEATURED = [
     title: "Caso de Éxito: Stori by Rufus",
     paragraph:
       "Descubre como Stori utilizó Data Driven Ads para reducir el CPA, mejor el CTR y optimizar sus campañas publicitarias.",
-    variant: "1x1",
+    featured: true,
   },
-];
-
-export const ARTICLES = [
   {
     className: "",
     image: articleImg4,
@@ -104,6 +101,46 @@ export const ARTICLES = [
     className: "",
     image: articleImg9,
     genre: ["Digital Advertising"],
+    author: "Miranda Marini",
+    date: { month: "Octubre", day: "14", year: "2024" },
+    title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",
+    paragraph:
+      "Captar la atención en los primeros segundos es clave para el éxito de cualquier anuncio. Un buen hook...",
+  },
+  {
+    className: "",
+    image: articleImg9,
+    genre: ["Creatividad"],
+    author: "Miranda Marini",
+    date: { month: "Octubre", day: "14", year: "2024" },
+    title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",
+    paragraph:
+      "Captar la atención en los primeros segundos es clave para el éxito de cualquier anuncio. Un buen hook...",
+  },
+  {
+    className: "",
+    image: articleImg9,
+    genre: ["Creatividad"],
+    author: "Miranda Marini",
+    date: { month: "Octubre", day: "14", year: "2024" },
+    title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",
+    paragraph:
+      "Captar la atención en los primeros segundos es clave para el éxito de cualquier anuncio. Un buen hook...",
+  },
+  {
+    className: "",
+    image: articleImg9,
+    genre: ["Creatividad"],
+    author: "Miranda Marini",
+    date: { month: "Octubre", day: "14", year: "2024" },
+    title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",
+    paragraph:
+      "Captar la atención en los primeros segundos es clave para el éxito de cualquier anuncio. Un buen hook...",
+  },
+  {
+    className: "",
+    image: articleImg9,
+    genre: ["Creatividad"],
     author: "Miranda Marini",
     date: { month: "Octubre", day: "14", year: "2024" },
     title: "El poder del Hook: Cómo conquistar a tu audiencia en 3 segundos",

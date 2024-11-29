@@ -14,7 +14,7 @@ const Card = ({
   ...props
 }) => {
   const baseClasses =
-    "w-full h-fit rounded-[1.75rem] bg-white max-w-[600px] xl:max-w-full m-auto";
+    "w-full h-full rounded-[1.75rem] bg-white max-w-[600px] xl:max-w-full m-auto";
 
   const variantContainerStyles = {
     base: "",
@@ -38,7 +38,7 @@ const Card = ({
     "2x1": {
       genre: "text-base text-purple mr-3",
       date: "my-4 text-base",
-      title: "mb-6 text-4xl font-bold xl:text-4xl",
+      title: "mb-6 text-2xl font-bold xl:text-4xl",
       paragraph: "mb-8 text-base",
     },
     "1x1": {
@@ -50,7 +50,7 @@ const Card = ({
   };
 
   return (
-    <div className={`${baseClasses} ${className}`}>
+    <div className={`relative ${baseClasses} ${className}`}>
       <div className={variantImageStyles[variant]}>
         <Image
           src={image}
@@ -76,10 +76,16 @@ const Card = ({
         <h2 className={variantTextStyles[variant].title}>{title}</h2>
         <p className={variantTextStyles[variant].paragraph}>{paragraph}</p>
         <Link
-          href={`/${title.toLowerCase().replaceAll(" ", "-")}`}
-          className="flex items-center text-base font-bold text-purple"
+          href={`/articles/${encodeURIComponent(
+            title
+              .toLowerCase()
+              .replace(/[^a-z0-9\s-]/g, "")
+              .trim()
+              .replace(/\s+/g, "-")
+          )}`}
+          className="flex items-center text-base font-bold text-purple absolute bottom-5"
         >
-          Leer artículo{" "}
+          Leer artículo
           <Image src={LinkIcon} alt="Link arrow" className="ml-1" />
         </Link>
       </div>
