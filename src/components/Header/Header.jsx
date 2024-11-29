@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import logoMobile from "@/assets/icons/logo_mobile.svg";
@@ -6,8 +8,25 @@ import search from "@/assets/icons/search.svg";
 import Menu from "@/components/Header/Menu";
 import Button from "@/components/Button/Button";
 import { NAV_LINKS } from "@/data/index";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Navbar = () => {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && searchTerm.trim()) {
+      router.push(`/articles?search=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      router.push(`/articles?search=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
   return (
     <header className=" w-full sticky top-0 z-50 bg-background">
       <div className="w-full max-w-[1440px] m-auto">
@@ -36,14 +55,22 @@ const Navbar = () => {
             <div className="relative flex items-center">
               <input
                 type="text"
+                aria-label="Search articles"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyDown}
                 className="w-64 h-14 rounded-[3.75rem] px-8 placeholder:text-black"
                 placeholder="Search"
               />
               <div htmlFor="input" className="absolute right-8 cursor-pointer">
-                <Image src={search} alt="Search" />
+                <Image onClick={handleSearch} src={search} alt="Search" />
               </div>
             </div>
-            <Button label="¡Hablemos!" className="px-8 py-4"></Button>
+            <Button
+              onClick={handleSearch}
+              label="¡Hablemos!"
+              className="px-8 py-4"
+            ></Button>
           </div>
         </div>
       </div>
