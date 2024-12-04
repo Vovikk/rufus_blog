@@ -69,7 +69,9 @@ const Articles = () => {
           >
             {filters.map((filterLabel, index) => (
               <Button
-                variant={"filter"}
+                variant={`${
+                  filterLabel === filter ? "filterSelected" : "filter"
+                }`}
                 label={filterLabel}
                 key={index}
                 onClick={() => applyFilter(filterLabel)}

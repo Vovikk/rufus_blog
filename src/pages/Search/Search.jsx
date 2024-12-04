@@ -4,10 +4,9 @@ import Button from "@/components/Button/Button";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const Search = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const searchTermFromUrl = searchParams.get("search") || "";
   const [searchTerm, setSearchTerm] = useState(searchTermFromUrl);
@@ -39,28 +38,27 @@ const Search = () => {
 
   return (
     <section className="w-full flex justify-center">
-      <div className="max-w-[1440px] w-full mt-16 lg:mt-[6.25rem]">
-        <div className="flex flex-col px-5 xl:px-20">
-          <h2 className="text-4xl lg:text-5xl font-bold ">
-            Resultados de búsqueda: “{searchTermFromUrl}”
-          </h2>
-          <p className="text-base lg:text-lg">
-            {filteredArticles.length > 0
-              ? `Displaying ${(currentPage - 1) * itemsPerPage + 1} – ${
-                  currentPage * itemsPerPage > filteredArticles.length
-                    ? filteredArticles.length
-                    : currentPage * itemsPerPage
-                } of ${filteredArticles.length} results`
-              : "No results found"}
-          </p>
+      <div className="max-w-[1440px] w-full my-16 lg:mt-[6.25rem] px-5 xl:px-[12.5rem]">
+        <div className="flex flex-col items-center">
+          <div className="max-w-[600px] w-full xl:max-w-none sm:text-center xl:text-left">
+            <h2 className="text-2xl lg:text-[2rem] font-bold mb-6">
+              Resultados de búsqueda: “{searchTermFromUrl}”
+            </h2>
+            <p className="text-base lg:text-lg mb-9">
+              {filteredArticles.length > 0
+                ? `Displaying ${(currentPage - 1) * itemsPerPage + 1} – ${
+                    currentPage * itemsPerPage > filteredArticles.length
+                      ? filteredArticles.length
+                      : currentPage * itemsPerPage
+                  } of ${filteredArticles.length} results`
+                : "No results found"}
+            </p>
+          </div>
         </div>
-        <div className="flex justify-center py-4"></div>
-        <div
-          className={`flex flex-col items-center px-5 xl:px-20 gap-x-8 gap-y-8 xl:gap-y-[3.75rem]`}
-        >
+        <div className={`flex flex-col items-center space-y-8`}>
           {paginatedArticles.map((article, index) => (
             <Card
-              className={article.className}
+              className={`${article.className} xl:flex xl:flex-row `}
               image={article.image}
               genre={article.genre}
               author={article.author}
@@ -68,10 +66,11 @@ const Search = () => {
               title={article.title}
               paragraph={article.paragraph}
               key={index}
+              variant="search"
             />
           ))}
         </div>
-        <div className="my-12 px-5 lg:px-20 w-full flex items-center justify-center">
+        <div className="w-full mt-12 flex items-center justify-center">
           {totalPages > 1 && (
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex gap-2">

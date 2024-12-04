@@ -4,17 +4,32 @@ import Button from "@/components/Button/Button";
 import styles from "@/pages/articles/Articles.module.scss";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
-const Articles = () => {
-  const [filter, setFilter] = useState("none");
+const Articles = ({ initialFilter }) => {
+  const [filter, setFilter] = useState(initialFilter || "none");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const filterSectionRef = useRef(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    setFilter(initialFilter || "none");
+  }, [initialFilter]);
 
   const applyFilter = (newFilter) => {
-    setFilter((prevFilter) => (prevFilter === newFilter ? "none" : newFilter));
+    const updatedFilter = filter === newFilter ? "none" : newFilter;
+    setFilter(updatedFilter);
     setCurrentPage(1);
+
+    const params = new URLSearchParams(window.location.search);
+    if (updatedFilter === "none") {
+      params.delete("filter");
+    } else {
+      params.set("filter", updatedFilter);
+    }
+    router.push(`/articles?${params.toString()}`);
     scrollToFilter();
   };
 
@@ -46,6 +61,7 @@ const Articles = () => {
   };
 
   const filters = [...new Set(ARTICLES.flatMap((article) => article.genre))];
+
   return (
     <section className="w-full flex justify-center">
       <div className="max-w-[1440px] w-full mt-16 lg:mt-[6.25rem]">
@@ -68,7 +84,7 @@ const Articles = () => {
           >
             {filters.map((filterLabel, index) => (
               <Button
-                variant={"filter"}
+                variant={filter === filterLabel ? "filterSelected" : "filter"} // Adjust variant based on filter state
                 label={filterLabel}
                 key={index}
                 onClick={() => applyFilter(filterLabel)}

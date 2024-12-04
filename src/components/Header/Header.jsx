@@ -32,20 +32,24 @@ const Navbar = () => {
       <div className="w-full max-w-[1440px] m-auto">
         <div className="relative flex items-center justify-center h-20 lg:hidden">
           <Link href="/">
-            <Image src={logoMobile} alt="Logo" className="cursor-pointer" />
+            <Image
+              src={logoMobile}
+              alt="Logo"
+              className="cursor-pointer relative z-50"
+            />
           </Link>
           <Menu links={NAV_LINKS} />
         </div>
         <div className="hidden  w-full items-center justify-between lg:flex h-20 px-20">
           <div className="flex items-center justify-center gap-12 text-lg ">
             <Link href="/">
-              <Image src={logo} alt="Logo" />
+              <Image src={logo} alt="Logo" className="cursor-pointer" />
             </Link>
             <nav>
               <ul className="flex gap-6">
                 {NAV_LINKS.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href + link.key}>{link.label}</a>
+                    <Link href={link.href + link.key}>{link.label}</Link>
                   </li>
                 ))}
               </ul>

@@ -110,7 +110,7 @@ const Footer = () => {
         </div>
       </div>
       <div className=" py-5 bg-purple-dark mt-[2px] md:m-0 md:flex md:justify-center w-full leading-5  text-xs font-helvetica text-white">
-        <div className="relative max-w-7xl mx-20 space-y-4 md:space-y-0 md:flex  md:justify-between md:w-full">
+        <div className="relative max-w-7xl sm:mx-20 space-y-4 md:space-y-0 md:flex  md:justify-between md:w-full">
           <div className="absolute hidden md:block w-full h-[2px] bg-purple bottom-10"></div>
           <div>
             <p className="text-center ">

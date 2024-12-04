@@ -6,9 +6,10 @@ import { useSearchParams } from "next/navigation";
 
 const ArticlesPage = () => {
   const searchParams = useSearchParams();
-  const searchTermFromUrl = searchParams.get("search") || "";
+  const searchTerm = searchParams.get("search") || "";
+  const filter = searchParams.get("filter") || "";
 
-  return <>{searchTermFromUrl ? <Search></Search> : <Articles></Articles>}</>;
+  return <>{searchTerm ? <Search /> : <Articles initialFilter={filter} />}</>;
 };
 
 export default ArticlesPage;
