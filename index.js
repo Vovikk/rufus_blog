@@ -41,3 +41,5 @@ function findAgent(queue, agents) {
     )
   );
 }
+
+module.exports = findAgent;
