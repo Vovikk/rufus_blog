@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-center md:items-start mb-12">
               <h2 className="text-[2rem] leading-[2.375rem] text-white font-bold mb-6">
-                Ver más
+                See more
               </h2>
               <ul className="flex flex-col gap-4 text-white items-center md:items-start md:max-w-32">
                 {FOOTER_LINKS_MORE.map((links, index) => (
@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-center md:items-start ">
               <h2 className="text-[2rem] leading-[2.375rem] text-white font-bold mb-6">
-                Servicios
+                Services
               </h2>
               <ul className="flex flex-col gap-4 text-white items-center md:items-start md:max-w-32">
                 {FOOTER_LINKS_SERVICES.map((links, index) => (
@@ -86,8 +86,8 @@ const Footer = () => {
           <div className="absolute hidden md:block w-full h-[2px] bg-purple bottom-10"></div>
           <div>
             <p className="text-center">
-              &copy; 2024 Rufus Social. All rights reserved. Powered by
-              Programon
+              &copy; {new Date().getFullYear()} Rufus Social. All rights
+              reserved.
             </p>
           </div>
           <div className="flex justify-center gap-4 underline">

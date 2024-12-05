@@ -72,7 +72,7 @@ const Navbar = () => {
             </div>
             <Button
               onClick={handleSearch}
-              label="¡Hablemos!"
+              label="Search!"
               className="px-8 py-4"
             ></Button>
           </div>

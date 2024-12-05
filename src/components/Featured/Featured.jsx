@@ -6,7 +6,7 @@ const Articles = () => {
     <section className="flex w-full flex-col items-center">
       <div className="max-w-[1440px] w-full px-5 lg:p-20">
         <h2 className="font-bold text-center xl:text-left text-[2rem] md:text-4xl mb-9">
-          Artículos destacados
+          Featured articles
         </h2>
         <div className="flex flex-col items-center xl:grid grid-cols-[46%_1fr] grid-rows-[h-fit, h-fit] gap-9 xl:gap-8 mb-12 h-full">
           {(() => {

@@ -1,10 +1,11 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import styles from "@/components/Articles/Article.module.scss";
+import styles from "@/components/Article/Article.module.scss";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
 import { useState, useRef } from "react";
+import Pagination from "@/components/Pagination/Pagination";
 
 const Articles = () => {
   const [filter, setFilter] = useState("none");
@@ -52,18 +53,18 @@ const Articles = () => {
       <div className="max-w-[1440px] w-full">
         <div className="flex flex-col items-center gap-6 px-5 lg:px-20 max-w-[650px] m-auto">
           <h2 className="text-4xl lg:text-5xl font-bold text-center">
-            Últimas novedades
+            Latest news
           </h2>
           <p className="text-center text-base lg:text-lg">
-            Mantente actualizado y aprende sobre publicidad digital, casos de
-            éxito, creatividad y los temas más interesantes de la industria.
+            Stay updated and learn about digital advertising, success stories,
+            creativity and the most interesting topics in the industry.
           </p>
         </div>
         <div
           ref={filterSectionRef}
           className="flex items-center justify-center py-12 lg:py-[3.75rem] pl-5"
         >
-          <span className="text-base font-bold mr-4">Filtrar:</span>
+          <span className="text-base font-bold mr-4">Filter:</span>
           <div
             className={`flex gap-4 overflow-x-auto text-nowrap ${styles.scrollbar}`}
           >
@@ -100,63 +101,11 @@ const Articles = () => {
             />
           ))}
         </div>
-        <div className="my-12 px-5 lg:px-20 w-full flex items-center justify-center">
-          {totalPages > 1 && (
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex gap-2">
-                <Button
-                  label="Anterior"
-                  variant="paginationLeft"
-                  onClick={() => goToPage(currentPage - 1)}
-                  className={
-                    currentPage === 1 ? "border-gray-500 text-gray-500" : ""
-                  }
-                  disabled={currentPage === 1}
-                />
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <Button
-                    label={`${i + 1}`}
-                    variant={
-                      i === currentPage - 1
-                        ? "paginationSelected"
-                        : "pagination"
-                    }
-                    key={i}
-                    onClick={() => goToPage(i + 1)}
-                    className="hidden md:block"
-                  />
-                ))}
-                <Button
-                  label="Siguiente"
-                  variant="paginationRight"
-                  onClick={() => goToPage(currentPage + 1)}
-                  className={
-                    currentPage === totalPages
-                      ? "border-gray-500 text-gray-500"
-                      : ""
-                  }
-                  disabled={currentPage === totalPages}
-                />
-              </div>
-
-              <div className="flex gap-2">
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <Button
-                    label={`${i + 1}`}
-                    variant={
-                      i === currentPage - 1
-                        ? "paginationSelected"
-                        : "pagination"
-                    }
-                    key={i}
-                    onClick={() => goToPage(i + 1)}
-                    className="block md:hidden"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          goToPage={goToPage}
+        />
       </div>
     </section>
   );

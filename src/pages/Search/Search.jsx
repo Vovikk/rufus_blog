@@ -5,6 +5,7 @@ import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import Pagination from "@/components/Pagination/Pagination";
 
 const Search = () => {
   const searchParams = useSearchParams();
@@ -42,7 +43,7 @@ const Search = () => {
         <div className="flex flex-col items-center">
           <div className="max-w-[600px] w-full xl:max-w-none sm:text-center xl:text-left">
             <h2 className="text-2xl lg:text-[2rem] font-bold mb-6">
-              Resultados de búsqueda: “{searchTermFromUrl}”
+              Search results: “{searchTermFromUrl}”
             </h2>
             <p className="text-base lg:text-lg mb-9">
               {filteredArticles.length > 0
@@ -70,63 +71,11 @@ const Search = () => {
             />
           ))}
         </div>
-        <div className="w-full mt-12 flex items-center justify-center">
-          {totalPages > 1 && (
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex gap-2">
-                <Button
-                  label="Anterior"
-                  variant="paginationLeft"
-                  onClick={() => goToPage(currentPage - 1)}
-                  className={
-                    currentPage === 1 ? "border-gray-500 text-gray-500" : ""
-                  }
-                  disabled={currentPage === 1}
-                />
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <Button
-                    label={`${i + 1}`}
-                    variant={
-                      i === currentPage - 1
-                        ? "paginationSelected"
-                        : "pagination"
-                    }
-                    key={i}
-                    onClick={() => goToPage(i + 1)}
-                    className="hidden md:block"
-                  />
-                ))}
-                <Button
-                  label="Siguiente"
-                  variant="paginationRight"
-                  onClick={() => goToPage(currentPage + 1)}
-                  className={
-                    currentPage === totalPages
-                      ? "border-gray-500 text-gray-500"
-                      : ""
-                  }
-                  disabled={currentPage === totalPages}
-                />
-              </div>
-
-              <div className="flex gap-2">
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <Button
-                    label={`${i + 1}`}
-                    variant={
-                      i === currentPage - 1
-                        ? "paginationSelected"
-                        : "pagination"
-                    }
-                    key={i}
-                    onClick={() => goToPage(i + 1)}
-                    className="block md:hidden"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          goToPage={goToPage}
+        />
       </div>
     </section>
   );

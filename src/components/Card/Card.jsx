@@ -103,7 +103,7 @@ const Card = ({
           )}`}
           className={`flex items-center text-base font-bold text-purple w-fit hover:text-purple-dark`}
         >
-          Leer artículo
+          Read article
           <Image src={LinkIcon} alt="Link arrow" className="ml-1" />
         </Link>
       </div>

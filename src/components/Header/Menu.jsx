@@ -63,7 +63,7 @@ const Menu = ({ links }) => {
 
             <Button
               onClick={handleSearch}
-              label="¡Hablemos!"
+              label="Search!"
               className="px-8 py-4 max-w-sm w-full"
             ></Button>
           </div>

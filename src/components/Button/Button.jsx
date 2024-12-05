@@ -11,8 +11,8 @@ const Button = ({ variant = "base", label, onClick, className = "" }) => {
     filterSelected: `bg-purple-dark text-white px-4 py-2 hover:bg-purple-darker`,
     white: `px-10 py-4 bg-white text-black font-bold lg:rounded-[3.75rem] hover:bg-gray-200`,
     pagination: `bg-transparent text-black border border-black rounded-full w-10 h-10 hover:bg-black hover:text-white`,
-    paginationLeft: `border border-black justify-between h-10 px-6 hover:bg-gray-200 hover:text-black`,
-    paginationRight: `border border-black justify-between h-10 px-6 hover:bg-gray-200 hover:text-black`,
+    paginationLeft: `border border-black justify-between h-10 px-6 w-[130px]`,
+    paginationRight: `border border-black justify-between h-10 px-6 w-[130px]`,
     paginationSelected: `border border-black bg-black text-white rounded-full w-10 h-10 hover:bg-gray-800`,
   };
 
