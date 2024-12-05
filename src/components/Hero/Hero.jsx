@@ -11,7 +11,7 @@ const Hero = () => {
             Stay Tuned of the latest Trends and market insights
           </h1>
           <p className="text-base lg:text-lg leading-6 mb-8">
-            If you're looking for creative inspiration, trend analysis and
+            If you&apos;re looking for creative inspiration, trend analysis and
             success stories that make a difference in the digital marketing
             industry, subscribe today.
           </p>

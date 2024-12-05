@@ -10,9 +10,9 @@ const Newsletter = () => {
               Stay Tuned of the latest Trends and market insights
             </h2>
             <p className="text-base text-white text-center mb-8">
-              If you're looking for creative inspiration, trend analysis and
-              success stories that make a difference in the digital marketing
-              industry, subscribe today.
+              If you&apos;re looking for creative inspiration, trend analysis
+              and success stories that make a difference in the digital
+              marketing industry, subscribe today.
             </p>
             <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 w-full">
               <input
