@@ -7,7 +7,7 @@ import logoMobile from "@/assets/icons/logo_mobile-white.svg";
 import facebookIcon from "@/assets/icons/facebook.svg";
 import instagramIcon from "@/assets/icons/instagram.svg";
 import twitterIcon from "@/assets/icons/twitter.svg";
-import linkedInIcon from "@/assets/icons/linkedIn.svg";
+import linkedInIcon from "@/assets/icons/linkedin.svg";
 import footerLeft from "@/assets/images/footer_left.png";
 import footerRight from "@/assets/images/footer_right.png";
 
