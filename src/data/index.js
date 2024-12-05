@@ -1,3 +1,7 @@
+import facebookIcon from "@/assets/icons/facebook.svg";
+import instagramIcon from "@/assets/icons/instagram.svg";
+import twitterIcon from "@/assets/icons/twitter.svg";
+import linkedInIcon from "@/assets/icons/linkedin.svg";
 import articleImg1 from "@/assets/images/articles/1.png";
 import articleImg2 from "@/assets/images/articles/2.png";
 import articleImg3 from "@/assets/images/articles/3.png";
@@ -11,6 +15,28 @@ import articleImg9 from "@/assets/images/articles/9.png";
 export const NAV_LINKS = [
   { href: "/", key: "", label: "Blog" },
   { href: "/", key: "articles", label: "Articles" },
+];
+
+export const FOOTER_SOCIALS = [
+  { href: "#", key: "", label: "Facebook", image: facebookIcon },
+  { href: "#", key: "", label: "Instagram", image: instagramIcon },
+  { href: "#", key: "", label: "Twitter", image: twitterIcon },
+  { href: "#", key: "", label: "LinkedIn", image: linkedInIcon },
+];
+
+export const FOOTER_LINKS_MORE = [
+  { href: "/", key: "", label: "Sobre rufus" },
+  { href: "/", key: "", label: "Blog" },
+  { href: "/", key: "", label: "Únete al equipo" },
+  { href: "/", key: "", label: "Comunidad de creadores" },
+  { href: "/", key: "", label: "Contacto" },
+];
+
+export const FOOTER_LINKS_SERVICES = [
+  { href: "/", key: "", label: "Creators" },
+  { href: "/", key: "", label: "Creative Flex" },
+  { href: "/", key: "", label: "Smart Ads" },
+  { href: "/", key: "", label: "Fully managed" },
 ];
 
 export const ARTICLES = [

@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import styles from "@/pages/Articles/articles.module.scss";
+import styles from "@/pages/Articles/Article.module.scss";
 import Card from "@/components/Card/Card";
 import { ARTICLES } from "@/data/index";
 import { useState, useEffect, useRef } from "react";

@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FOOTER_SOCIALS } from "@/data/index";
+import { FOOTER_LINKS_MORE } from "@/data/index";
+import { FOOTER_LINKS_SERVICES } from "@/data/index";
 import Button from "@/components/Button/Button";
 import footerTitleMobile from "@/assets/icons/footer_title-mobile.svg";
 import footerTitle from "@/assets/icons/footer_title.svg";
 import logoMobile from "@/assets/icons/logo_mobile-white.svg";
-import facebookIcon from "@/assets/icons/facebook.svg";
-import instagramIcon from "@/assets/icons/instagram.svg";
-import twitterIcon from "@/assets/icons/twitter.svg";
-import linkedInIcon from "@/assets/icons/linkedin.svg";
 import footerLeft from "@/assets/images/footer_left.png";
 import footerRight from "@/assets/images/footer_right.png";
 
@@ -47,21 +46,11 @@ const Footer = () => {
               <div className="w-fit mb-[4.5rem] md:mr-28">
                 <Image src={logoMobile} alt="Logo" />
                 <div className="flex justify-between md:justify-normal md:gap-4 mt-6">
-                  <Link href="#">
-                    <Image src={facebookIcon} alt="Facebook link" />
-                  </Link>
-
-                  <Link href="#">
-                    <Image src={instagramIcon} alt="Instagram link" />
-                  </Link>
-
-                  <Link href="#">
-                    <Image src={twitterIcon} alt="Twitter link" />
-                  </Link>
-
-                  <Link href="#">
-                    <Image src={linkedInIcon} alt="LinkedIn link" />
-                  </Link>
+                  {FOOTER_SOCIALS.map((social, index) => (
+                    <Link href={social.href + social.key} key={index}>
+                      <Image src={social.image} alt={`${social.label} link`} />
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
@@ -70,21 +59,11 @@ const Footer = () => {
                 Ver más
               </h2>
               <ul className="flex flex-col gap-4 text-white items-center md:items-start md:max-w-32">
-                <li>
-                  <Link href="#">Sobre rufus</Link>
-                </li>
-                <li>
-                  <Link href="#">Blog</Link>
-                </li>
-                <li>
-                  <Link href="#">Únete al equipo</Link>
-                </li>
-                <li>
-                  <Link href="#">Comunidad de creadores</Link>
-                </li>
-                <li>
-                  <Link href="#">Contacto</Link>
-                </li>
+                {FOOTER_LINKS_MORE.map((links, index) => (
+                  <li key={index}>
+                    <Link href={links.href + links.key}>{links.label}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="flex flex-col items-center md:items-start ">
@@ -92,18 +71,11 @@ const Footer = () => {
                 Servicios
               </h2>
               <ul className="flex flex-col gap-4 text-white items-center md:items-start md:max-w-32">
-                <li>
-                  <Link href="#">Creators</Link>
-                </li>
-                <li>
-                  <Link href="#">Creative Flex</Link>
-                </li>
-                <li>
-                  <Link href="#">Smart Ads</Link>
-                </li>
-                <li>
-                  <Link href="#">Fully managed</Link>
-                </li>
+                {FOOTER_LINKS_SERVICES.map((links, index) => (
+                  <li key={index}>
+                    <Link href={links.href + links.key}>{links.label}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
